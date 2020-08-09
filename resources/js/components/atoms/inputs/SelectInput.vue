@@ -1,6 +1,6 @@
 <template>
     <div>
-        <select v-model="edit_todo_status">
+        <select v-model="todo_status">
             <option>未着手</option>
             <option>着手中</option>
             <option>完了</option>

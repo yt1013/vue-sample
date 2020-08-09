@@ -28,21 +28,26 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="todo in todos" v-bind:key="todo.id">
-                        <td>@{{ todo.id }}</td>
-                        <td>@{{ todo.title }}</td>
-                        <td>@{{ todo.content }}</td>
-                        <td>@{{ todo.status }}</td>
-                        <td>
-                            <select v-model="edit_todo_status">
-                                <option>未着手</option>
-                                <option>着手中</option>
-                                <option>完了</option>
-                            </select>
-                            <button class="btn btn-success" type="button" v-on:click="editStatus(todo.id)">変更</button>
-                        </td>
-                        <td><button class="btn btn-primary" v-on:click="deleteTodo(todo.id)">削除</button></td>
-                    </tr>
+{{--                    <tr v-for="todo in todos" v-bind:key="todo.id">--}}
+{{--                        <td>@{{ todo.id }}</td>--}}
+{{--                        <td>@{{ todo.title }}</td>--}}
+{{--                        <td>@{{ todo.content }}</td>--}}
+{{--                        <td>@{{ todo.status }}</td>--}}
+{{--                        <td>--}}
+{{--                            <select v-model="edit_todo_status">--}}
+{{--                                <option>未着手</option>--}}
+{{--                                <option>着手中</option>--}}
+{{--                                <option>完了</option>--}}
+{{--                            </select>--}}
+{{--                            <button class="btn btn-success" type="button" v-on:click="editStatus(todo.id)">変更</button>--}}
+{{--                        </td>--}}
+{{--                        <td><button class="btn btn-primary" v-on:click="deleteTodo(todo.id)">削除</button></td>--}}
+{{--                    </tr>--}}
+                        <todo-table-row
+                            v-for="todo in todos"
+                            v-bind:key="todo.id"
+                            :todo="todo">
+                        </todo-table-row>
                     </tbody>
                 </table>
             </div>
@@ -64,6 +69,7 @@
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
+<script src="https://unpkg.com/vuex@3.5.1/dist/vuex.js"></script>
 <script src="{{ asset('js/app.js') }}"></script> <!-- ←④ -->
 </body>
 </html>

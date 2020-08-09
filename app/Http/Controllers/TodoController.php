@@ -48,7 +48,7 @@ class TodoController extends Controller
         $todo->status = $request->todo_status;
         $todo->save();
 
-        return Todo::all();
+        return Todo::find($request->todo_id);
     }
 
     /**

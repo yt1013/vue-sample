@@ -1,5 +1,10 @@
 require('./bootstrap');
 
+import Vue from 'vue';
+import TodoTableRow from "./components/molecules/TodoTableRow";
+
+Vue.component('todo-table-row', TodoTableRow);
+
 const app = new Vue({
     el: '#app',
 

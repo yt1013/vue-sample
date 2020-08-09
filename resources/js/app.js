@@ -12,7 +12,6 @@ const app = new Vue({
         new_todo_title: '',
         new_todo_content: '',
         new_todo_status: '',
-        edit_todo_status: '',
         todos: []
     },
 
@@ -32,21 +31,6 @@ const app = new Vue({
                 this.new_todo_title = '';
                 this.new_todo_content = '';
                 this.new_todo_status = '';
-            })
-        },
-        editStatus: function (todo_id) {
-            axios.post('api/todo/edit', {
-                todo_id: todo_id,
-                todo_status: this.edit_todo_status
-            }).then((res) => {
-                this.todos = res.data;
-            })
-        },
-        deleteTodo: function (todo_id) {
-            axios.post('/api/todo/delete', {
-                todo_id: todo_id
-            }).then((res) => {
-                this.todos = res.data;
             })
         }
     },

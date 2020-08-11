@@ -19,10 +19,3 @@
 </body>
 
 </html>
-
-<script>
-    import TodoTable from "../../js/components/todo/parts/TodoTable";
-    export default {
-        components: {TodoTable}
-    }
-</script>

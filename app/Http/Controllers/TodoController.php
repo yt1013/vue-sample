@@ -22,9 +22,9 @@ class TodoController extends Controller
      * Store Item
      *
      * @param Request $request
-     * @return Todo[]|Collection
+     * @return void
      */
-    public function store(Request $request): Collection
+    public function store(Request $request): void
     {
         $todo = new Todo([
             'title' => $request->todo_title,
@@ -32,35 +32,29 @@ class TodoController extends Controller
             'status' => $request->todo_status
         ]);
         $todo->save();
-
-        return Todo::all();
     }
 
     /**
      * Edit Item
      *
      * @param Request $request
-     * @return Todo[]|Collection
+     * @return void
      */
-    public function edit(Request $request): Collection
+    public function edit(Request $request): void
     {
         $todo = Todo::find($request->todo_id);
         $todo->status = $request->todo_status;
         $todo->save();
-
-        return Todo::all();
     }
 
     /**
      * Delete Item
      *
      * @param Request $request
-     * @return Todo[]|Collection
+     * @return void
      */
-    public function delete(Request $request): Collection
+    public function delete(Request $request): void
     {
         Todo::destroy($request->todo_id);
-
-        return Todo::all();
     }
 }

@@ -7,7 +7,6 @@
         <td>
             <select-input
                 :todo_id="todo.id"
-                :todo_status="todo.status"
                 @reload="reloadTodos"
             >
             </select-input>

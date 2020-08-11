@@ -1,6 +1,6 @@
 <template>
     <div>
-        <select v-model="todo_status">
+        <select v-model="todo_status" >
             <option>未着手</option>
             <option>着手中</option>
             <option>完了</option>
@@ -15,8 +15,7 @@
 
         props: {
             todo_id: {},
-            todo_stats: {},
-            todos: {}
+            todo_status: {}
         },
 
         methods: {
@@ -25,7 +24,7 @@
                     todo_id: todo_id,
                     todo_status: this.todo_status
                 }).then((res) => {
-                    this.$parent.todo = res.data;
+                    this.$emit('reload')
                 })
             },
         }

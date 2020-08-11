@@ -7,12 +7,16 @@
         <td>
             <select-input
                 :todo_id="todo.id"
-                :todo_status="todo.status">
+                :todo_status="todo.status"
+                @reload="reloadTodos"
+            >
             </select-input>
         </td>
         <td>
             <button-input
-                :todo_id="todo.id">
+                :todo_id="todo.id"
+                @reload="reloadTodos"
+            >
             </button-input>
         </td>
     </tr>
@@ -32,7 +36,13 @@
 
         props: [
             'todo'
-        ]
+        ],
+
+        methods: {
+            reloadTodos() {
+                this.$emit('get');
+            }
+        }
     }
 </script>
 

@@ -16,7 +16,7 @@
                 axios.post('/api/todo/delete', {
                     todo_id: todo_id
                 }).then((res) => {
-                    this.todos = res.data;
+                    this.$emit('reload')
                 })
             }
         }

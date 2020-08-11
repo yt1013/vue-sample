@@ -1,9 +1,11 @@
 require('./bootstrap');
 
 import Vue from 'vue';
-import TodoTableRow from "./components/molecules/TodoTableRow";
+import Vuex from 'vuex';
+import TodoTable from "./components/todo/parts/TodoTable";
 
-Vue.component('todo-table-row', TodoTableRow);
+Vue.use(Vuex);
+Vue.component('todo-table', TodoTable);
 
 const app = new Vue({
     el: '#app',
@@ -16,11 +18,6 @@ const app = new Vue({
     },
 
     methods: {
-        getTodos: function () {
-            axios.get('/api/todo').then((res) => {
-                this.todos = res.data; // 取得したTODOリストを格納
-            })
-        },
         storeTodo: function () {
             axios.post('/api/todo/store', {
                 todo_title: this.new_todo_title,
@@ -33,9 +30,5 @@ const app = new Vue({
                 this.new_todo_status = '';
             })
         }
-    },
-
-    created() { // インスタンス作成時にfetchTodoを実行するため、createdフックに登録
-        this.getTodos()
     }
 });

@@ -26,7 +26,7 @@
         },
 
         methods: {
-            storeTodo: function () {
+            storeTodo() {
                 axios.post('/api/todo/store', {
                     todo_title: this.todo_title,
                     todo_content: this.todo_content,
@@ -35,7 +35,7 @@
                     this.todo_title = '';
                     this.todo_content = '';
                     this.todo_status = 0;
-                    // this.$emit('reload', res.data)
+                    this.$emit('reload')
                 })
             }
         }

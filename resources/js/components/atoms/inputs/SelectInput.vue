@@ -24,6 +24,7 @@
                     todo_id: todo_id,
                     todo_status: this.todo_status
                 }).then((res) => {
+                    this.todo_status = 0;
                     this.$emit('reload')
                 })
             },

@@ -3,9 +3,11 @@ require('./bootstrap');
 import Vue from 'vue';
 import Vuex from 'vuex';
 import TodoTable from "./components/todo/parts/TodoTable";
+import StoreTodoForm from "./components/todo/parts/StoreTodoForm";
 
 Vue.use(Vuex);
 Vue.component('todo-table', TodoTable);
+Vue.component('store-todo-form', StoreTodoForm);
 
 const app = new Vue({
     el: '#app',
